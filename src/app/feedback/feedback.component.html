@@ -11,7 +11,8 @@
       </md-card-content>
       <md-card-actions fxLayout="row" fxLayoutAlign="end center">
         <button md-button><md-icon>comment</md-icon></button>
-        <button md-button (click)="feedback.vote()"><md-icon [color]="feedback.getVoteIconColor()">{{ feedback.getVoteIcon() }}</md-icon></button>
+        <button md-button (click)="feedback.voteUp()"><md-icon [color]="feedback.getThumbUpColor()">thumb_up</md-icon></button>
+        <button md-button (click)="feedback.voteDown()"><md-icon [color]="feedback.getThumbDownColor()">thumb_down</md-icon></button>
         <md-icon color="accent">{{ feedback.getScoreIcon() }}</md-icon>
       </md-card-actions>
     </md-card>

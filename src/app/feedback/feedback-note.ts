@@ -10,35 +10,39 @@ export class FeedbackNote {
         this.category = category;
     }
 
-    getVoteIcon() {
-        switch (this.voted) {
-            case 1: return "thumb_up";
-            case -1: return "thumb_down";
-        }
-        return "thumbs_up_down";
+    getThumbUpColor() {
+        return this.voted == 1 ? "primary" : "";
     }
 
-    getVoteIconColor() {
-        switch (this.voted) {
-            case 1: return "primary";
-            case -1: return "warn";
-        }
-        return "";
+    getThumbDownColor() {
+        return this.voted == -1 ? "warn" : "";
     }
 
-    vote() {
+    voteUp() {
         if (this.voted == 1) {
-            this.voted = -1;
-            this.score -= 2;
-        } else {
-            this.voted++;
-            this.score++;
+            this.voted = 0;
         }
+        else {
+            this.voted = 1;
+        }
+    }
+
+    voteDown() {
+        if (this.voted == -1) {
+            this.voted = 0;
+        }
+        else {
+            this.voted = -1;
+        }
+    }
+
+    getScore() {
+        return this.score + this.voted;
     }
 
     getScoreIcon() {
-        if (this.score == 0) return "exposure_zero";
-        else if (this.score > 0) return "exposure_plus_" + this.score;
-        else return "exposure_neg_" + this.score;
+        if (this.getScore() == 0) return "exposure_zero";
+        else if (this.getScore() > 0) return "exposure_plus_" + this.getScore();
+        else return "exposure_neg_" + this.getScore();
     }
 }
