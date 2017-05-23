@@ -2,7 +2,7 @@ md-card-actions > md-icon {
   margin: 0px 10px 0px 10px;
 }
 
-md-card-actions > button {
+.icon-button {
     margin: 0px;
     min-width: 0px;
 }

@@ -9,6 +9,9 @@ import { FeedbackNote } from './feedback-note'
 })
 export class FeedbackComponent implements OnInit {
 
+  isNewFeedback = false;
+  feedbackNote = new FeedbackNote("", "");
+
   feedbacks = [];
 
   constructor() { }
@@ -22,6 +25,11 @@ export class FeedbackComponent implements OnInit {
       "Description long one long one long one long one long one long one long one long one #2",
       "CR"
     ));
+  }
+
+  onSubmit(event) {
+    this.feedbacks.push(this.feedbackNote);
+    this.isNewFeedback = false;
   }
 
 }

@@ -2,12 +2,13 @@ export class FeedbackNote {
 
     description: string;
     category: string;
-    score: number = 1;
-    voted: number = 0;
+    score: number = 0;
+    voted: number = 1;
 
     constructor(description: string, category: string) {
         this.description = description;
         this.category = category;
+        this.voted = 1;
     }
 
     getThumbUpColor() {
