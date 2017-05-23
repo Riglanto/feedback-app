@@ -27,11 +27,11 @@ export class FeedbackNote {
     }
 
     vote() {
-        if (this.voted > 0) {
+        if (this.voted == 1) {
             this.voted = -1;
-            this.score--;
+            this.score -= 2;
         } else {
-            this.voted = 1;
+            this.voted++;
             this.score++;
         }
     }
