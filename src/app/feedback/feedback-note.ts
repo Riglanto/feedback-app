@@ -11,11 +11,11 @@ export class FeedbackNote {
     }
 
     getThumbUpColor() {
-        return this.voted == 1 ? "primary" : "";
+        return this.voted == 1 ? "green" : "";
     }
 
     getThumbDownColor() {
-        return this.voted == -1 ? "warn" : "";
+        return this.voted == -1 ? "red" : "";
     }
 
     voteUp() {

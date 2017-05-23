@@ -11,10 +11,11 @@
       </md-card-content>
       <md-card-actions fxLayout="row" fxLayoutAlign="end center">
         <button md-button><md-icon>comment</md-icon></button>
-        <button md-button (click)="feedback.voteUp()"><md-icon [color]="feedback.getThumbUpColor()">thumb_up</md-icon></button>
-        <button md-button (click)="feedback.voteDown()"><md-icon [color]="feedback.getThumbDownColor()">thumb_down</md-icon></button>
-        <md-icon color="accent">{{ feedback.getScoreIcon() }}</md-icon>
+        <button md-button (click)="feedback.voteUp()"><md-icon [style.color]="feedback.getThumbUpColor()">thumb_up</md-icon></button>
+        <button md-button (click)="feedback.voteDown()"><md-icon [style.color]="feedback.getThumbDownColor()">thumb_down</md-icon></button>
+        <md-icon color="primary">{{ feedback.getScoreIcon() }}</md-icon>
       </md-card-actions>
     </md-card>
   </div>
+  <button #newfeedback md-fab md-tooltip="Add feedback" (click)="newfeedback.toggle()"><md-icon>add</md-icon></button>
 </div>
