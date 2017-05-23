@@ -1,0 +1,19 @@
+<div fxLayout="column" fxLayoutAlign="space-around start">
+  <div *ngFor='let feedback of feedbacks'>
+    <md-card>
+      <md-card-header>
+        <md-card-title>{{ feedback.category }}</md-card-title>
+      </md-card-header>
+      <md-card-content>
+        <p>
+          {{ feedback.description }}
+        </p>
+      </md-card-content>
+      <md-card-actions fxLayout="row" fxLayoutAlign="end center">
+        <button md-button><md-icon>comment</md-icon></button>
+        <button md-button (click)="feedback.vote()"><md-icon [color]="feedback.getVoteIconColor()">{{ feedback.getVoteIcon() }}</md-icon></button>
+        <md-icon color="accent">{{ feedback.getScoreIcon() }}</md-icon>
+      </md-card-actions>
+    </md-card>
+  </div>
+</div>
