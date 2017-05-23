@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FeedbackNoteComponent } from '../feedback-note/feedback-note.component';
+import { FeedbackNote } from './feedback-note'
 
 @Component({
   selector: 'app-feedback',
@@ -14,11 +14,11 @@ export class FeedbackComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.feedbacks.push(new FeedbackNoteComponent(
+    this.feedbacks.push(new FeedbackNote(
       "Description #1",
       "Bug"
     ));
-    this.feedbacks.push(new FeedbackNoteComponent(
+    this.feedbacks.push(new FeedbackNote(
       "Description long one long one long one long one long one long one long one long one #2",
       "CR"
     ));

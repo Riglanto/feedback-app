@@ -10,13 +10,11 @@ import { MaterialModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FeedbackNoteComponent } from './feedback-note/feedback-note.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FeedbackComponent,
-    FeedbackNoteComponent
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
