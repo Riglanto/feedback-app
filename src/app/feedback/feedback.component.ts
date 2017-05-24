@@ -21,11 +21,6 @@ export class FeedbackComponent implements OnInit {
     this.getFeedbacks();
   }
 
-  ngAfterContentChecked() {
-    if (this.isNewFeedback)
-      window.scrollTo(0, document.body.scrollHeight);
-  }
-
   getFeedbacks(): void {
     this.feedbackService
       .getFeedbacks()
@@ -40,5 +35,16 @@ export class FeedbackComponent implements OnInit {
 
   onDelete(feedbackNote) {
     this.feedbackService.deleteFeedback(feedbackNote);
+  }
+
+  // TODO: [RIG] Bad workaround - to be investigated
+  // could be moved into ngAfterViewInit or similar
+  openNewFeedback() {
+    this.isNewFeedback = true;
+    setTimeout(x => {
+      window.scrollTo(0, document.body.scrollHeight);
+      document.getElementById("description").focus();
+    }, 0);
+
   }
 }

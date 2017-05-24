@@ -12,3 +12,7 @@ md-card {
   width: 300px;
   max-width: 300px;
 }
+
+md-hint {
+  font-size: 75% !important
+}

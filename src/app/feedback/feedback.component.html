@@ -1,9 +1,6 @@
 <div fxLayout="column" fxLayoutAlign="space-around start">
   <div *ngFor='let feedback of feedbacks'>
     <md-card>
-      <md-card-header>
-        <md-card-title>{{ feedback.category }}</md-card-title>
-      </md-card-header>
       <md-card-content>
         <p>
           {{ feedback.description }}
@@ -21,17 +18,16 @@
     </md-card>
   </div>
 
-  <button *ngIf="!isNewFeedback" md-fab md-tooltip="Add feedback" (click)="isNewFeedback = !isNewFeedback"><md-icon>add</md-icon></button>
+  <button *ngIf="!isNewFeedback" md-fab md-tooltip="Add feedback" mdTooltipPosition="after" (click)="openNewFeedback()"><md-icon>add</md-icon></button>
   <form *ngIf="isNewFeedback" (ngSubmit)="onSubmit()" #fbForm="ngForm">
     <md-card fxLayout="column">
       <md-input-container>
-        <input mdInput [(ngModel)]="feedbackNote.category" name="category" id="category" placeholder="Category">
-      </md-input-container>
-      <md-input-container>
-        <textarea mdInput [(ngModel)]="feedbackNote.description" name="description" id="description" placeholder="Feedback"></textarea>
+        <textarea #description mdInput [(ngModel)]="feedbackNote.description" required rows="8" maxlength="300" name="description" id="description"
+          placeholder="Feedback"></textarea>
+        <md-hint>{{feedbackNote.description.length}} / 300</md-hint>
       </md-input-container>
       <md-card-actions fxLayout="row" fxLayoutAlign="end center">
-        <button md-raised-button color="accent" type="submit">Add</button>
+        <button md-raised-button color="accent" type="submit" [disabled]="!fbForm.form.valid">Add</button>
         <button md-raised-button color="warn" (click)="isNewFeedback=false">Cancel</button>
       </md-card-actions>
     </md-card>
