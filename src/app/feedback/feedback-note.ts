@@ -3,12 +3,12 @@ export class FeedbackNote {
     description: string;
     category: string;
     score: number = 0;
-    voted: number = 1;
+    voted: number = 0;
+    isOwned: boolean = true;
 
     constructor(description: string, category: string) {
         this.description = description;
         this.category = category;
-        this.voted = 1;
     }
 
     getThumbUpColor() {
@@ -44,6 +44,6 @@ export class FeedbackNote {
     getScoreIcon() {
         if (this.getScore() == 0) return "exposure_zero";
         else if (this.getScore() > 0) return "exposure_plus_" + this.getScore();
-        else return "exposure_neg_" + this.getScore();
+        else return "exposure_neg_" + Math.abs(this.getScore());
     }
 }

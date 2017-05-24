@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FeedbackNote } from './feedback-note'
+import { FeedbackNote } from './feedback-note';
+import { FeedbackService } from './feedback.service';
 
 @Component({
   selector: 'app-feedback',
@@ -12,24 +13,28 @@ export class FeedbackComponent implements OnInit {
   isNewFeedback = false;
   feedbackNote = new FeedbackNote("", "");
 
-  feedbacks = [];
+  private feedbacks = [];
 
-  constructor() { }
+  constructor(private feedbackService: FeedbackService) { }
 
   ngOnInit() {
-    this.feedbacks.push(new FeedbackNote(
-      "Description #1",
-      "Bug"
-    ));
-    this.feedbacks.push(new FeedbackNote(
-      "Description long one long one long one long one long one long one long one long one #2",
-      "CR"
-    ));
+    this.getFeedbacks();
+  }
+
+  getFeedbacks(): void {
+    this.feedbackService
+        .getFeedbacks()
+        .then(feedbacks => this.feedbacks = feedbacks);
   }
 
   onSubmit(event) {
-    this.feedbacks.push(this.feedbackNote);
+    this.feedbackService.addFeedback(this.feedbackNote);
     this.isNewFeedback = false;
+    this.feedbackNote = new FeedbackNote("", "");
+  }
+
+  onDelete(feedbackNote) {
+    this.feedbackService.deleteFeedback(feedbackNote);
   }
 
 }

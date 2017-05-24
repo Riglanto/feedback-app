@@ -10,13 +10,17 @@
         </p>
       </md-card-content>
       <md-card-actions fxLayout="row" fxLayoutAlign="end center">
-        <button md-button class="icon-button"><md-icon>comment</md-icon></button>
-        <button md-button class="icon-button" (click)="feedback.voteUp()"><md-icon [style.color]="feedback.getThumbUpColor()">thumb_up</md-icon></button>
-        <button md-button class="icon-button" (click)="feedback.voteDown()"><md-icon [style.color]="feedback.getThumbDownColor()">thumb_down</md-icon></button>
+        <div *ngIf="!feedback.isOwned">
+          <button md-button class="icon-button"><md-icon>comment</md-icon></button>
+          <button md-button class="icon-button" (click)="feedback.voteUp()"><md-icon [style.color]="feedback.getThumbUpColor()">thumb_up</md-icon></button>
+          <button md-button class="icon-button" (click)="feedback.voteDown()"><md-icon [style.color]="feedback.getThumbDownColor()">thumb_down</md-icon></button>
+        </div>
+        <button *ngIf="feedback.isOwned" md-button class="icon-button" (click)="onDelete(feedback)"><md-icon>delete</md-icon></button>
         <md-icon color="primary">{{ feedback.getScoreIcon() }}</md-icon>
       </md-card-actions>
     </md-card>
   </div>
+
   <button *ngIf="!isNewFeedback" md-fab md-tooltip="Add feedback" (click)="isNewFeedback = !isNewFeedback"><md-icon>add</md-icon></button>
   <form *ngIf="isNewFeedback" (ngSubmit)="onSubmit()" #fbForm="ngForm">
     <md-card fxLayout="column">
@@ -28,7 +32,7 @@
       </md-input-container>
       <md-card-actions fxLayout="row" fxLayoutAlign="end center">
         <button md-raised-button color="accent" type="submit">Add</button>
-        <button md-raised-button color="warn" (click)="fbForm.reset();isNewFeedback=false;">Cancel</button>
+        <button md-raised-button color="warn" (click)="isNewFeedback=false">Cancel</button>
       </md-card-actions>
     </md-card>
   </form>

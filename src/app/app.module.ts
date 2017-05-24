@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { FeedbackService } from './feedback/feedback.service';
 
 import { MaterialModule} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,7 +25,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     BrowserAnimationsModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [FeedbackService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
