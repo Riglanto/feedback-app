@@ -13,7 +13,7 @@ export class FeedbackComponent implements OnInit {
   isNewFeedback = false;
   feedbackNote = new FeedbackNote("", "");
 
-  private feedbacks = [];
+  feedbacks = [];
 
   constructor(private feedbackService: FeedbackService) { }
 
