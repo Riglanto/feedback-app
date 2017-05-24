@@ -21,10 +21,15 @@ export class FeedbackComponent implements OnInit {
     this.getFeedbacks();
   }
 
+  ngAfterContentChecked() {
+    if (this.isNewFeedback)
+      window.scrollTo(0, document.body.scrollHeight);
+  }
+
   getFeedbacks(): void {
     this.feedbackService
-        .getFeedbacks()
-        .then(feedbacks => this.feedbacks = feedbacks);
+      .getFeedbacks()
+      .then(feedbacks => this.feedbacks = feedbacks);
   }
 
   onSubmit(event) {
@@ -36,5 +41,4 @@ export class FeedbackComponent implements OnInit {
   onDelete(feedbackNote) {
     this.feedbackService.deleteFeedback(feedbackNote);
   }
-
 }
