@@ -1,3 +1,12 @@
-<p>
-  list works!
-</p>
+<div>
+  <md-list>
+    <div *ngFor="let person of persons">
+      <md-list-item>
+        <md-icon md-list-icon>face</md-icon>
+        <h4 md-line>{{person.lastName}}</h4>
+        <p md-line> {{person.firstName}} </p>
+      </md-list-item>
+      <md-divider></md-divider>
+    </div>
+  </md-list>
+</div>
