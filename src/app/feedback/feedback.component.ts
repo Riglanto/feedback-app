@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FeedbackNote } from './feedback-note';
 import { FeedbackService } from './feedback.service';
 
+import {MdSnackBar} from '@angular/material';
+
 @Component({
   selector: 'app-feedback',
   templateUrl: './feedback.component.html',
@@ -15,10 +17,16 @@ export class FeedbackComponent implements OnInit {
 
   feedbacks = [];
 
-  constructor(private feedbackService: FeedbackService) { }
+  constructor(private feedbackService: FeedbackService, private confirmBar: MdSnackBar) { }
 
   ngOnInit() {
     this.getFeedbacks();
+  }
+  
+  openConfirmationBar() {
+    this.confirmBar.open("Feedback added", "OK", {
+      duration: 2000,
+    });
   }
 
   getFeedbacks(): void {
@@ -31,6 +39,7 @@ export class FeedbackComponent implements OnInit {
     this.feedbackService.addFeedback(this.feedbackNote);
     this.isNewFeedback = false;
     this.feedbackNote = new FeedbackNote("", "");
+    this.openConfirmationBar();
   }
 
   onDelete(feedbackNote) {
