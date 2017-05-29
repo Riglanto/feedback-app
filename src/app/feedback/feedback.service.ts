@@ -20,26 +20,6 @@ export class FeedbackService {
       "Description long one long one long one long one long one long one long one long one #2",
       "my CR"
     ));
-    this.feedbacks.push(new FeedbackNote(
-      "Description long one long one long one long one long one long one long one long one #3",
-      "my CR"
-    ));
-    this.feedbacks.push(new FeedbackNote(
-      "Description long one long one long one long one long one long one long one long one #4",
-      "my CR"
-    ));
-    this.feedbacks.push(new FeedbackNote(
-      "Description long one long one long one long one long one long one long one long one #5",
-      "my CR"
-    ));
-    this.feedbacks.push(new FeedbackNote(
-      "Description long one long one long one long one long one long one long one long one #6",
-      "my CR"
-    ));
-    this.feedbacks.push(new FeedbackNote(
-      "Description long one long one long one long one long one long one long one long one #7",
-      "my CR"
-    ));
   }
 
   getFeedbacks(): Promise<FeedbackNote[]> {

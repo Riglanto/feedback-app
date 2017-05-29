@@ -1,7 +1,11 @@
 <md-toolbar color="primary">
   {{title}}
+  <nav>
+    <button md-button routerLink="/feedbacks" class="icon-button"><md-icon>feedback</md-icon></button>
+    <button md-button routerLink="/list" class="icon-button"><md-icon>list</md-icon></button>
+  </nav>
 </md-toolbar>
 
 <div class="app-content">
-  <app-feedback></app-feedback>
+  <router-outlet></router-outlet>
 </div>
