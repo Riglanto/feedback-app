@@ -3,13 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { Person } from '../models/person';
 import { PersonService } from '../services/person.service';
 
-
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  selector: 'app-grid',
+  templateUrl: './grid.component.html',
+  styleUrls: ['./grid.component.css']
 })
-export class ListComponent implements OnInit {
+export class GridComponent implements OnInit {
 
   persons = [];
 
@@ -24,5 +23,4 @@ export class ListComponent implements OnInit {
       .getPersons()
       .then(persons => this.persons = persons);
   }
-
 }

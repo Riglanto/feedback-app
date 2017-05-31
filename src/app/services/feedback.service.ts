@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import 'rxjs/add/operator/toPromise';
 
-import { FeedbackNote } from './feedback-note'
+import { FeedbackNote } from '../models/feedback-note'
 
 @Injectable()
 export class FeedbackService {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FeedbackNote } from './feedback-note';
-import { FeedbackService } from './feedback.service';
+import { FeedbackNote } from '../models/feedback-note';
+import { FeedbackService } from '../services/feedback.service';
 
 import {MdSnackBar} from '@angular/material';
 

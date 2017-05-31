@@ -6,13 +6,16 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { FeedbackComponent } from './feedback/feedback.component';
-import { FeedbackService } from './feedback/feedback.service';
+import { FeedbackService } from './services/feedback.service';
+import { PersonService } from './services/person.service';
+
 
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ListComponent } from './list/list.component';
+import { GridComponent } from './grid/grid.component';
 
 const appRoutes: Routes = [
   {
@@ -22,6 +25,10 @@ const appRoutes: Routes = [
   {
     path: 'list',
     component: ListComponent,
+  },
+  {
+    path: 'grid',
+    component: GridComponent,
   },
   {
     path: '',
@@ -34,7 +41,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     FeedbackComponent,
-    ListComponent
+    ListComponent,
+    GridComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +53,7 @@ const appRoutes: Routes = [
     FlexLayoutModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [FeedbackService],
+  providers: [FeedbackService, PersonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
