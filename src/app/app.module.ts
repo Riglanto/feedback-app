@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FeedbackService } from './services/feedback.service';
 import { PersonService } from './services/person.service';
-
+import { HelperService } from './services/helper.service';
 
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ListComponent } from './list/list.component';
 import { GridComponent } from './grid/grid.component';
+import { PersonDialogComponent } from './person-dialog/person-dialog.component';
 
 const appRoutes: Routes = [
   {
@@ -42,7 +43,8 @@ const appRoutes: Routes = [
     AppComponent,
     FeedbackComponent,
     ListComponent,
-    GridComponent
+    GridComponent,
+    PersonDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,10 @@ const appRoutes: Routes = [
     FlexLayoutModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [FeedbackService, PersonService],
+  entryComponents: [
+    PersonDialogComponent
+  ],
+  providers: [FeedbackService, PersonService, HelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

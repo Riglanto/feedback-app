@@ -7,4 +7,8 @@ export class Person {
         this.firstName = firstName;
         this.lastName = lastName;
     }
+
+    copy(): Person {
+        return <Person>JSON.parse(JSON.stringify(this));
+    }
 }

@@ -1,6 +1,6 @@
 <md-grid-list cols="2" rowHeight="1:1">
   <md-grid-tile *ngFor="let person of persons">
-    <md-card>
+    <md-card  (click)="openPersonView(person)">
       <md-card-header>
         <md-card-title>{{person.lastName}}</md-card-title>
         <md-card-subtitle>{{person.firstName}}</md-card-subtitle>

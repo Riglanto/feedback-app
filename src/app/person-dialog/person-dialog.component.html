@@ -1,0 +1,14 @@
+<h1 md-dialog-title>Edit person</h1>
+<div md-dialog-content fxLayout="row">
+  <md-icon md-list-icon>face</md-icon>
+  <md-input-container>
+    <input mdInput placeholder="First name" [(ngModel)]="person.firstName">
+  </md-input-container>
+  <md-input-container>
+    <input mdInput placeholder="Last name" [(ngModel)]="person.lastName">
+  </md-input-container>
+</div>
+<div md-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">
+  <button md-raised-button color="accent" (click)="dialogRef.close('Cancel')">Cancel</button>
+  <button md-raised-button color="primary" (click)="dialogRef.close('Save')">Save</button>
+</div>

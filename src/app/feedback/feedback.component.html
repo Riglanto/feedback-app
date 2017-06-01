@@ -26,9 +26,9 @@
           placeholder="Feedback"></textarea>
         <md-hint>{{feedbackNote.description.length}} / 300</md-hint>
       </md-input-container>
-      <md-card-actions fxLayout="row" fxLayoutAlign="end center">
-        <button md-raised-button color="accent" type="submit" [disabled]="!fbForm.form.valid">Add</button>
+      <md-card-actions fxLayout="row" fxLayoutAlign="space-between center">
         <button md-raised-button color="warn" (click)="isNewFeedback=false">Cancel</button>
+        <button md-raised-button color="accent" type="submit" [disabled]="!fbForm.form.valid">Add</button>
       </md-card-actions>
     </md-card>
   </form>

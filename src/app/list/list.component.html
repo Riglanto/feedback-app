@@ -1,7 +1,7 @@
 <div>
   <md-list>
     <div *ngFor="let person of persons">
-      <md-list-item>
+      <md-list-item (click)="openPersonView(person)">
         <md-icon md-list-icon>face</md-icon>
         <h4 md-line>{{person.lastName}}</h4>
         <p md-line>{{person.firstName}}</p>
