@@ -1,14 +1,23 @@
 <h1 md-dialog-title>Edit person</h1>
-<div md-dialog-content fxLayout="row">
-  <md-icon md-list-icon>face</md-icon>
-  <md-input-container>
-    <input mdInput placeholder="First name" [(ngModel)]="person.firstName">
-  </md-input-container>
-  <md-input-container>
-    <input mdInput placeholder="Last name" [(ngModel)]="person.lastName">
-  </md-input-container>
+<div md-dialog-content fxLayout="column">
+  <div fxLayout="row">
+    <md-icon md-list-icon>face</md-icon>
+    <md-input-container>
+      <input mdInput placeholder="First name" [(ngModel)]="person.firstName">
+    </md-input-container>
+    <md-input-container>
+      <input mdInput placeholder="Last name" [(ngModel)]="person.lastName">
+    </md-input-container>
+  </div>
+  <div fxLayout="row">
+    <md-chip-list>
+      <md-chip selected="{{skill.highlighted}}"  color="{{skill.highlighted ? 'accent' : ''}}" *ngFor="let skill of person.skills" (click)="skill.highlighted = !skill.highlighted">
+        {{skill.name}}
+      </md-chip>
+    </md-chip-list>
+  </div>
 </div>
 <div md-dialog-actions fxLayout="row" fxLayoutAlign="space-between center">
-  <button md-raised-button color="accent" (click)="dialogRef.close('Cancel')">Cancel</button>
+  <button md-raised-button color="warn" (click)="dialogRef.close('Cancel')">Cancel</button>
   <button md-raised-button color="primary" (click)="dialogRef.close('Save')">Save</button>
 </div>

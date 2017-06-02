@@ -1,10 +1,17 @@
 <div>
   <md-list>
     <div *ngFor="let person of persons">
-      <md-list-item (click)="openPersonView(person)">
-        <md-icon md-list-icon>face</md-icon>
+      <md-list-item>
+        <md-icon md-list-icon (click)="openPersonView(person)">face</md-icon>
         <h4 md-line>{{person.lastName}}</h4>
         <p md-line>{{person.firstName}}</p>
+        <md-chip-list selectable="false">
+          <div fxLayout="row" fxLayoutAlign="end center">
+            <md-chip selected="{{skill.highlighted}}" color="{{skill.getColor()}}" *ngFor="let skill of person.skills" (click)="skill.highlighted = !skill.highlighted">
+              {{skill.name}}
+            </md-chip>
+          </div>
+        </md-chip-list>
       </md-list-item>
       <md-divider></md-divider>
     </div>

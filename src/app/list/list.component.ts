@@ -28,5 +28,4 @@ export class ListComponent implements OnInit {
       .getPersons()
       .then(persons => this.persons = persons);
   }
-
 }
