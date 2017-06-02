@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Person } from '../models/person';
+import { Person, Skill } from '../models/person';
 import { MdDialog, MdDialogRef } from '@angular/material';
 import { PersonDialogComponent } from '../person-dialog/person-dialog.component'
 
@@ -15,8 +15,9 @@ export class HelperService {
       disableClose: true,
     });
     dialogRef.afterClosed().subscribe(result => {
-      if (result === "Save")
+      if (result === "Save") {
         Object.assign(person, tmpPerson);
+      }
     });
   }
 

@@ -5,15 +5,31 @@
         <md-card-title>{{person.lastName}}</md-card-title>
         <md-card-subtitle>{{person.firstName}}</md-card-subtitle>
         <md-icon md-list-icon (click)="openPersonView(person)">face</md-icon>
+      </md-card-header>
+      <md-card-content fxLayout="column" fxLayoutAlign="start start">
+        <div fxLayout="row">
+          <md-input-container>
+            <input mdInput [disabled]="!person.isEditing" placeholder="First name" [(ngModel)]="person.firstName">
+          </md-input-container>
+          <md-input-container>
+            <input mdInput [disabled]="!person.isEditing" placeholder="Last name" [(ngModel)]="person.lastName">
+          </md-input-container>
+          <md-input-container>
+            <input mdInput [disabled]="!person.isEditing" [mdDatepicker]="picker" placeholder="Availability" [(ngModel)]="person.availability">
+            <button mdSuffix [mdDatepickerToggle]="picker"></button>
+          </md-input-container>
+        </div>
+        <md-datepicker #picker></md-datepicker>
         <md-chip-list>
-          <md-chip selected="{{skill.highlighted}}" color="{{skill.getColor()}}" *ngFor="let skill of person.skills" (click)="skill.highlighted = !skill.highlighted">
+          <md-chip selected="{{skill.highlighted}}" color="{{skill.getColor()}}" *ngFor="let skill of person.skills" (click)="person.deleteSkill(skill)">
             {{skill.name}}
           </md-chip>
         </md-chip-list>
-      </md-card-header>
-      <md-card-content>
       </md-card-content>
       <md-card-actions>
+        <button *ngIf="!person.isEditing" md-button (click)="person.startEditing()"><md-icon>edit</md-icon></button>
+        <button *ngIf="person.isEditing" md-raised-button color="warn" (click)="person.cancelEditing()">Cancel</button>
+        <button *ngIf="person.isEditing" md-raised-button color="primary" (click)="person.stopEditing()">Save</button>
       </md-card-actions>
     </md-card>
   </md-grid-tile>

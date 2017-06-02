@@ -10,7 +10,7 @@ import { FeedbackService } from './services/feedback.service';
 import { PersonService } from './services/person.service';
 import { HelperService } from './services/helper.service';
 
-import { MaterialModule } from '@angular/material';
+import { MaterialModule, MdDatepickerModule, MdNativeDateModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -53,7 +53,9 @@ const appRoutes: Routes = [
     MaterialModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    MdDatepickerModule,
+    MdNativeDateModule
   ],
   entryComponents: [
     PersonDialogComponent
