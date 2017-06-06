@@ -2,3 +2,26 @@ md-card {
     width: 85%;
     height: 85%;
 }
+
+.skills {
+    height: 6rem;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar
+{
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-track
+{
+  border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: #888888;
+  border-radius: 10px;
+}
