@@ -1,4 +1,4 @@
-<md-grid-list cols="2" rowHeight="1:1">
+<md-grid-list cols="2" rowHeight="2:3">
   <md-grid-tile *ngFor="let person of persons">
     <md-card>
       <md-card-header>
@@ -19,22 +19,44 @@
         </md-input-container>
         <md-datepicker #picker></md-datepicker>
         <md-input-container fxFlex="33">
-          <input mdInput [disabled]="!person.isEditing" placeholder="Salary" [(ngModel)]="person.salary">
-        </md-input-container>
-        <md-input-container fxFlex="33">
-          <input mdInput [disabled]="!person.isEditing" placeholder="Salary" [(ngModel)]="person.salaryInfo">
+          <input mdInput [disabled]="!person.isEditing" placeholder="Salary" [(ngModel)]="person.salary" mdTooltip="Netto or Brutto?">
         </md-input-container>
         <md-input-container fxFlex="33">
           <input mdInput [disabled]="!person.isEditing" type="number" placeholder="Years of experience" [(ngModel)]="person.expYears">
         </md-input-container>
-        <md-input-container fxFlex="100">
-          <textarea mdInput [disabled]="!person.isEditing" placeholder="Comment" [(ngModel)]="person.comment"></textarea>
+        <md-input-container fxFlex="33">
+          <input mdInput [disabled]="!person.isEditing" placeholder="City" [(ngModel)]="person.city">
         </md-input-container>
-        <md-chip-list>
-          <md-chip selected="{{skill.highlighted}}" color="{{skill.getColor()}}" *ngFor="let skill of person.skills" (click)="person.deleteSkill(skill)">
-            {{skill.name}}
-          </md-chip>
-        </md-chip-list>
+        <md-input-container fxFlex="100">
+          <textarea mdInput [disabled]="!person.isEditing" placeholder="Recommendation" [(ngModel)]="person.recommendation"></textarea>
+        </md-input-container>
+        <md-grid-list fxFlex="100" cols="4" rowHeight="5:1">
+          <span *ngFor="let skill of person.skills">
+            <md-grid-tile>
+              <md-input-container>
+                <input mdInput [disabled]="!person.isEditing" placeholder="Skill" [(ngModel)]="skill.name">
+              </md-input-container>
+          </md-grid-tile>
+            <md-grid-tile>
+              <md-input-container>
+                <input mdInput [disabled]="!person.isEditing" placeholder="Level" [(ngModel)]="skill.level">
+              </md-input-container>
+              </md-grid-tile>
+          </span>
+        </md-grid-list>
+        <div *ngIf="person.isEditing" fxLayout="row" fxLayoutAlign="end center" fxFlex="100">
+          <button md-mini-fab (click)="person.addSkill()"><md-icon>add</md-icon></button>
+        </div>
+        <md-checkbox fxFlex="100" mdInput [disabled]="!person.isEditing" [(ngModel)]="person.asap">Available ASAP</md-checkbox>
+        <md-checkbox fxFlex="100" mdInput [disabled]="!person.isEditing" [(ngModel)]="person.relocation">Relocation</md-checkbox>
+        <md-checkbox fxFlex="50" mdInput [disabled]="!person.isEditing" [(ngModel)]="person.fullTime">Full-time</md-checkbox>
+        <md-checkbox fxFlex="50" mdInput [disabled]="!person.isEditing" [(ngModel)]="person.partTime">Part-time</md-checkbox>
+        <md-checkbox mdInput [disabled]="!person.isEditing" [(ngModel)]="person.remoteOnly">Remote only</md-checkbox>
+        <div fxFlex="100">
+          <md-input-container fxFlex="100">
+            <textarea mdInput [disabled]="!person.isEditing" placeholder="Comment (internal only)" [(ngModel)]="person.comment"></textarea>
+          </md-input-container>
+        </div>
       </md-card-content>
       <md-card-actions fxLayout="row" fxLayoutAlign="end center">
         <button *ngIf="!person.isEditing" md-button (click)="person.startEditing()"><md-icon>edit</md-icon></button>
