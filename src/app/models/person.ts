@@ -3,16 +3,22 @@ export class Person {
     firstName: string;
     lastName: string;
     skills: Skill[];
-    comments: string[];
+    comment: string;
     availability: Date;
     isEditing: Boolean = false;
     tmpPerson: Person;
+    salary: Number;
+    salaryInfo: string;
+    expYears: Number;
 
     constructor(firstName: string, lastName: string, skills: Skill[]) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.skills = skills;
         this.availability = new Date();
+        this.salary = Math.floor(Math.random() * 100000);
+        this.salaryInfo = "Netto"
+        this.expYears = Math.floor(Math.random() * 40)/2;
     }
 
     copy(): Person {
@@ -28,8 +34,11 @@ export class Person {
         this.skills = [];
         for (let s of newPerson.skills)
             this.skills.push(s);
-        this.comments = newPerson.comments;
+        this.comment = newPerson.comment;
         this.availability = newPerson.availability;
+        this.salary = newPerson.salary;
+        this.salaryInfo = newPerson.salaryInfo;
+        this.expYears = newPerson.expYears;
 
     }
 
@@ -49,7 +58,6 @@ export class Person {
     }
 
     deleteSkill(skill) {
-        console.log("deleteSkill");
         let index: number = this.skills.indexOf(skill);
         if (index !== -1) {
             this.skills.splice(index, 1);
