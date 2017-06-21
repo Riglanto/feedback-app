@@ -1,6 +1,7 @@
-<div fxLayout="column" fxLayoutAlign="space-around start">
-  <div *ngFor='let feedback of feedbacks'>
+<div fxLayout="row" fxLayoutWrap>
+  <div *ngFor='let feedback of feedbacks' fxFlex="100%" fxFlex.gt-xs="50%" fxFlex.gt-sm="33%" fxFlex.gt-md="25%">
     <md-card>
+      <!--<md-card  fxFlex="100%" fxFlex.gt-sm="50%">-->
       <md-card-content>
         <p>
           {{ feedback.description }}
@@ -18,13 +19,12 @@
     </md-card>
   </div>
 
-  <button *ngIf="!isNewFeedback" md-fab md-tooltip="Add feedback" mdTooltipPosition="after" (click)="openNewFeedback()"><md-icon>add</md-icon></button>
-  <form *ngIf="isNewFeedback" (ngSubmit)="onSubmit()" #fbForm="ngForm">
+  <form *ngIf="isNewFeedback" (ngSubmit)="onSubmit()" #fbForm="ngForm" fxFlex="100%" fxFlex.gt-xs="50%" fxFlex.gt-sm="33%" fxFlex.gt-md="25%">
     <md-card fxLayout="column">
       <md-input-container>
-        <textarea #description mdInput [(ngModel)]="feedbackNote.description" required rows="8" maxlength="300" name="description" id="description"
-          placeholder="Feedback"></textarea>
-        <md-hint>{{feedbackNote.description.length}} / 300</md-hint>
+        <textarea #description mdInput [(ngModel)]="feedbackNote.description" required rows="7" maxlength="200" name="description"
+          id="description" placeholder="Feedback"></textarea>
+        <md-hint>{{feedbackNote.description.length}} / 200</md-hint>
       </md-input-container>
       <md-card-actions fxLayout="row" fxLayoutAlign="space-between center">
         <button md-raised-button color="warn" (click)="isNewFeedback=false">Cancel</button>
@@ -33,3 +33,5 @@
     </md-card>
   </form>
 </div>
+
+<button class="action-button" *ngIf="!isNewFeedback" md-fab md-tooltip="Add feedback" mdTooltipPosition="after" (click)="openNewFeedback()"><md-icon>add</md-icon></button>
