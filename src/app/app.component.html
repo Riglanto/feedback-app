@@ -8,19 +8,19 @@
     <button md-button fxHide.gt-xs="true" (click)="sidenav.toggle()" class="icon-button"><md-icon>menu</md-icon></button>
   </nav>
 </md-toolbar>
-
-<md-sidenav #sidenav mode="over" (click)="sidenav.toggle()" fxLayout="column" fxLayoutAlign="start start" class="mat-toolbar mat-primary">
-  <button md-button routerLink="/feedbacks" class="icon-button"><md-icon>feedback</md-icon>Feedbacks</button>
-  <button md-button routerLink="/list" class="icon-button"><md-icon>list</md-icon>List</button>
-  <button md-button routerLink="/grid" class="icon-button"><md-icon>grid_on</md-icon>Grid</button>
-</md-sidenav>
-
 <md-sidenav-container>
+
+  <md-sidenav #sidenav mode="over" (click)="sidenav.toggle()" fxLayout="column" fxLayoutAlign="start start" class="mat-toolbar mat-primary">
+    <button md-button routerLink="/feedbacks" class="icon-button"><md-icon>feedback</md-icon>Feedbacks</button>
+    <button md-button routerLink="/list" class="icon-button"><md-icon>list</md-icon>List</button>
+    <button md-button routerLink="/grid" class="icon-button"><md-icon>grid_on</md-icon>Grid</button>
+  </md-sidenav>
+
   <div class="app-content">
     <router-outlet></router-outlet>
   </div>
-
-  <footer class="mat-toolbar mat-primary">
-    {{title}} - footer
-  </footer>
 </md-sidenav-container>
+
+<footer class="mat-toolbar mat-primary">
+  {{title}} - footer
+</footer>
