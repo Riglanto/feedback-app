@@ -12,7 +12,8 @@ md-card {
 }
 
 md-card-content {
-  height: 4.5em;
+  word-wrap: break-word;
+  height: 5em;
 }
 
 md-hint {

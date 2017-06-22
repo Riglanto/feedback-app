@@ -1,7 +1,6 @@
 <div fxLayout="row" fxLayoutWrap>
   <div *ngFor='let feedback of feedbacks' fxFlex="100%" fxFlex.gt-xs="50%" fxFlex.gt-sm="33%" fxFlex.gt-md="25%">
     <md-card>
-      <!--<md-card  fxFlex="100%" fxFlex.gt-sm="50%">-->
       <md-card-content>
         <p>
           {{ feedback.description }}
@@ -19,7 +18,8 @@
     </md-card>
   </div>
 
-  <form *ngIf="isNewFeedback" (ngSubmit)="onSubmit()" #fbForm="ngForm" fxFlex="100%" fxFlex.gt-xs="50%" fxFlex.gt-sm="33%" fxFlex.gt-md="25%">
+  <form *ngIf="isNewFeedback" (ngSubmit)="onSubmit()" #fbForm="ngForm" fxFlex="100%" fxFlex.gt-xs="50%" fxFlex.gt-sm="33%"
+    fxFlex.gt-md="25%">
     <md-card fxLayout="column">
       <md-input-container>
         <textarea #description mdInput [(ngModel)]="feedbackNote.description" required rows="7" maxlength="200" name="description"
@@ -34,4 +34,4 @@
   </form>
 </div>
 
-<button class="action-button" *ngIf="!isNewFeedback" md-fab md-tooltip="Add feedback" mdTooltipPosition="after" (click)="openNewFeedback()"><md-icon>add</md-icon></button>
+<button class="action-button" *ngIf="!isNewFeedback" md-fab md-tooltip="Add feedback" mdTooltipPosition="above" (click)="openNewFeedback()"><md-icon>add</md-icon></button>
