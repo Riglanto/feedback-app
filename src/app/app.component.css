@@ -5,6 +5,7 @@ md-sidenav {
 }
 
 .app-content {
+  min-height: calc(100vh - 168px - 20px);
   padding: 20px;
 }
 

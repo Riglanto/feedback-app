@@ -34,4 +34,6 @@
   </form>
 </div>
 
-<button class="action-button" *ngIf="!isNewFeedback" md-fab md-tooltip="Add feedback" mdTooltipPosition="above" (click)="openNewFeedback()"><md-icon>add</md-icon></button>
+<div fxLayout="row" fxLayoutAlign="end center">
+  <button *ngIf="!isNewFeedback" md-fab md-tooltip="Add feedback" mdTooltipPosition="above" (click)="openNewFeedback()"><md-icon>add</md-icon></button>
+</div>

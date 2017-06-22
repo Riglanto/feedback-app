@@ -21,7 +21,6 @@ md-hint {
 }
 
 .action-button {
-  display: inline-block;
   position: fixed;
   bottom: 20px;
   right: 20px;
